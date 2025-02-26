@@ -1,0 +1,25 @@
+{
+    "companyName": "Your Company Name",
+    "logo": "https://ng.ant.design/assets/img/logo.svg",
+    "logoPath": "./assets/logo.png",
+    "companyLink": "/",
+    "contactInfo": {
+      "email": "xxxxx@xxxxxx.com",
+      "phone": "+1 (xxx) xxx-xxxx",
+      "address": "xxx xxxxxx xx, xxx, xxxxxx"
+    },
+    "socialMedia": {
+      "twitter": "https://twitter.com/xxxxxxx",
+      "linkedin": "https://linkedin.com/xxxxxx",
+      "facebook": "https://facebook.com/xxxxxxx"
+    },
+    "theme": {
+      "primaryColor": "#1890ff",
+      "secondaryColor": "#52c41a",
+      "darkMode": false
+    },
+    "features": {
+      "enableChat": true,
+      "enableFeedback": true
+    }
+  }
