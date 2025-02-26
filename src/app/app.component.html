@@ -1,10 +1,12 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar"
+  <nz-sider 
+    #sidenav
+    class="menu-sidebar"
     nzCollapsible
     nzWidth="256px"
     nzBreakpoint="md"
     [(nzCollapsed)]="isCollapsed"
-    [nzTrigger]="null"
+    [nzTrigger] = "null"
   >
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
@@ -31,6 +33,13 @@
           <li nz-menu-item nzMatchRouter>
             <a>Basic Form</a>
           </li>
+          <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+            <ul>
+              <li nz-menu-item nzMatchRouter>
+                <a>Basic Form</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </li>
     </ul>
@@ -39,14 +48,16 @@
     <nz-header>
       <div class="app-header">
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-          <nz-icon class="trigger" [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" />
+          <nz-icon class="trigger" [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click) = "triggered(isCollapsed)"/>
         </span>
       </div>
     </nz-header>
+    
     <nz-content>
-      <div class="inner-content">
+        <div class="inner-content">
         <router-outlet></router-outlet>
       </div>
     </nz-content>
   </nz-layout>
 </nz-layout>
+
