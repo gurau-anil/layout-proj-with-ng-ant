@@ -1,0 +1,40 @@
+@if(menuItems){
+  <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+    @for (item of menuItems; track item.title) {
+      @if (item.submenu && item.submenu.length > 0) {
+        <li nz-submenu [nzOpen]="false" [nzTitle]="item.title" [nzIcon]="item.icon">
+          <ul>
+            @for (subItem of item.submenu; track subItem.title) {
+              @if (subItem.submenu && subItem.submenu.length > 0) {
+                <li nz-submenu [nzOpen]="false" [nzTitle]="subItem.title" [nzIcon]="subItem.icon">
+                  <ul>
+                    @for (subSubItem of subItem.submenu; track subSubItem.title) {
+                      @if (subSubItem.submenu && subSubItem.submenu.length > 0) {
+                        <app-menu-item [menuItem]="subSubItem"></app-menu-item>
+                      } @else {
+                        <li nz-menu-item nzMatchRouter [routerLink]="subSubItem.routerLink">
+                            <nz-icon [nzType]="subSubItem.icon" />
+                            <span>{{ subSubItem.title }}</span>
+                        </li>
+                      }
+                    }
+                  </ul>
+                </li>
+              } @else {
+                <li nz-menu-item nzMatchRouter [routerLink]="subItem.routerLink">
+                    <nz-icon [nzType]="subItem.icon" />
+                    <span>{{ subItem.title }}</span>
+                </li>
+              }
+            }
+          </ul>
+        </li>
+      } @else {
+        <li nz-menu-item nzMatchRouter [routerLink]="item.routerLink">
+            <nz-icon [nzType]="item.icon" />
+            <span>{{ item.title }}</span>
+        </li>
+      }
+    }
+</ul>
+}

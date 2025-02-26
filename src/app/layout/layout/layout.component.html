@@ -1,0 +1,13 @@
+<nz-layout class="app-layout">
+    <app-sidenav [isCollapsed]="isCollapsed"></app-sidenav>
+    <nz-layout>
+      <app-topnav [isCollapsed]="isCollapsed" (toggleCollapse)="toggleCollapse()"></app-topnav>
+      <nz-content>
+        <div class="inner-content">
+        <!-- <div class="inner-content" [ngStyle]="isCollapsed ? { 'margin-left': 'unset' } : { 'margin-left': '256px', 'transition' : 'all 0.3s' }"> -->
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+  
