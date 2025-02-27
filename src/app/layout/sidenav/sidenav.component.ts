@@ -4,16 +4,18 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { MenuComponent, MenuItem } from '../menu/menu.component';
 import { CompanyConfig, CompanyConfigService } from '../../../services/company.config';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 @Component({
   selector: 'app-sidenav',
-  imports: [NzIconModule, NzMenuModule, NzLayoutModule, MenuComponent],
+  imports: [NzIconModule, NzMenuModule, NzLayoutModule, MenuComponent, NzButtonModule],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.less'
 })
 export class SidenavComponent implements OnInit{
   @Input() isCollapsed: boolean = false;
-  @Output() isCollapsedChange = new EventEmitter<boolean>();
+  @Output() isAutoCollapsedChange = new EventEmitter<boolean>();
+  @Output() isMenuClosed = new EventEmitter();
   companyConfig: CompanyConfig | null = null;
   menuItems: MenuItem[] = [
     {
@@ -23,8 +25,7 @@ export class SidenavComponent implements OnInit{
       submenu: [
         {
           title: 'Welcome',
-          routerLink: '#',
-          icon: 'file-text'
+          routerLink: '/dashboard/welcome'
         }
       ]
     },
@@ -40,7 +41,7 @@ export class SidenavComponent implements OnInit{
     },
     {
       title: 'Form',
-      routerLink: 'welcome',
+      routerLink: '#',
       icon: 'form',
     }
   ];
@@ -56,5 +57,11 @@ export class SidenavComponent implements OnInit{
     // this.configService.getConfig().subscribe(config => {
     //   this.companyConfig = config;
     // });
+  }
+  autoCollapsedChanged(data: any){
+    this.isAutoCollapsedChange.emit(data);
+  }
+  closeMenu(){
+    this.isMenuClosed.emit();
   }
 }

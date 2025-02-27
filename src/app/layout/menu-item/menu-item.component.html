@@ -1,12 +1,12 @@
 @if (menuItem && menuItem.submenu && menuItem.submenu.length > 0) {
-    <li nz-submenu [nzOpen]="false" [nzTitle]="menuItem.title" [nzIcon]="menuItem.icon">
+    <li nz-submenu [nzOpen]="isSubMenuOpen(menuItem.title)" [nzTitle]="menuItem.title" [nzIcon]="menuItem.icon??''">
       <ul>
         @for (item of menuItem.submenu; track item.title) {
           @if (item.submenu && item.submenu.length > 0) {
             <app-menu-item [menuItem]="item"></app-menu-item>
           } @else {
             <li nz-menu-item nzMatchRouter [routerLink]="item.routerLink">
-                <nz-icon [nzType]="item.icon" />
+                <nz-icon [nzType]="item?.icon??''" />
                 <span>{{ item.title }}</span>
             </li>
           }
@@ -15,7 +15,7 @@
     </li>
   } @else {
     <li nz-menu-item nzMatchRouter [routerLink]="menuItem.routerLink">
-        <nz-icon [nzType]="menuItem.icon" />
+        <nz-icon [nzType]="menuItem.icon??''" />
         <span>{{ menuItem.title }}</span>
     </li>
 }

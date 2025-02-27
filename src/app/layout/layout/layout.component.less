@@ -17,15 +17,15 @@
 }
 
 .inner-content {
+  margin: 5rem 1rem;
+  height: calc(100vh - 6rem);  // Subtract space for header and footer
+  margin-left: 17rem;
   padding: 24px;
-  background: #fff;
-  height: calc(100vh - 7rem);  // Subtract space for header and footer
+  background: #ffffff;
   overflow-y: auto;
-  margin-left: 256px;  // Sidebar width for non-collapsed state
   box-sizing: border-box;
-  transition: margin-left 0.3s ease;  // Smooth transition for collapsed state
 }
 
-.inner-content.ng-untouched {
-  margin-left: 500px;  // For collapsed sidebar state
+.auto-collapse-content {
+  margin-left: 24px;  // For collapsed sidebar state
 }

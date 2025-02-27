@@ -1,10 +1,23 @@
 <!-- app-topnav.component.html -->
 <nz-header>
-    <div class="app-header">
+    <div nz-flex [nzVertical]="false" class="app-header">
+        <div class="flex-item" >
+            <span class="header-trigger" (click)="onCollapseToggle()">
+                <nz-icon class="trigger" [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"/>
+            </span>
+        </div>
+        <div class="flex-item even logo-section">
+            <a [href]="this.companyConfig?.companyLink??'/'">
+                <img [src]="this.companyConfig?.logo?? this.companyConfig?.logo?? '' " alt="logo" />
+                <h1>{{this.companyConfig?.companyName??''}}</h1>
+              </a>
+        </div>
+      </div>
+    <!-- <div class="app-header">
         <span class="header-trigger" (click)="onCollapseToggle()">
         <nz-icon class="trigger" [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"/>
         </span>
-    </div>
+    </div> -->
     
 </nz-header>
   

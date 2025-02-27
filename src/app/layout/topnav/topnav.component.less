@@ -9,20 +9,50 @@ nz-header {
 
 .app-header {
   position: relative;
-  height: 64px;
+  height: 4rem;
   padding: 0;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
 }
 
 .header-trigger {
-    height: 64px;
+    background:rgba(0,21,41,.05);
+    height: 4rem;
     padding: 20px 24px;
     font-size: 20px;
     cursor: pointer;
-    transition: all 0.3s, padding 0s;
+    transition: all 0.3s;
   }
   
-  .trigger:hover {
+  .header-trigger:hover, .trigger:hover {
     color: #1890ff;
+    transform: scale(1.1);
+    transition: all 0.3s;
   }
+
+
+  .logo-section {
+    position: relative;
+    height: 4rem;
+    padding-left: 24px;
+    overflow: hidden;
+    line-height: 4rem;
+    transition: all .3s;
+}
+
+.logo-section img {
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+    vertical-align: middle;
+}
+
+.logo-section h1 {
+    display: inline-block;
+    margin: 0 0 0 20px;
+    color: #1d1c1c;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+}

@@ -1,67 +1,27 @@
-<!-- app-sidenav.component.html
-<nz-sider 
-  class="menu-sidebar"
-  nzCollapsible
-  nzWidth="256px"
-  nzBreakpoint="md"
-  [(nzCollapsed)]="isCollapsed"
-  [nzTrigger]="null">
-  
-  <div class="sidebar-logo">
-    <a href="https://ng.ant.design/" target="_blank">
-      <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-      <h1>Ant Design of Angular</h1>
-    </a>
-  </div>
-  
-  <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-    <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
-      <ul>
-        <li nz-menu-item nzMatchRouter>
-          <a routerLink="/welcome">Welcome</a>
-        </li>
-        <li nz-menu-item nzMatchRouter>
-          <a>Monitor</a>
-        </li>
-        <li nz-menu-item nzMatchRouter>
-          <a>Workplace</a>
-        </li>
-      </ul>
-    </li>
-    <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
-      <ul>
-        <li nz-menu-item nzMatchRouter>
-          <a>Basic Form</a>
-        </li>
-        <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
-          <ul>
-            <li nz-menu-item nzMatchRouter>
-              <a>Basic Form</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nz-sider> -->
-
+<!-- auto collapse happens because of nzBreakpoint we set -->
 
 <nz-sider
   #sidenav
   class="menu-sidebar"
   nzCollapsible
-  nzWidth="256px"
+  nzWidth="16rem"
   nzBreakpoint="md"
   [nzCollapsedWidth] = "0"
   [(nzCollapsed)]="isCollapsed"
-  [nzTrigger]="null">
-  
-  <div class="sidebar-logo">
+  [nzTrigger]="null"
+  (nzCollapsedChange)="autoCollapsedChanged($event)"
+  >
+  <div class="close-icon-bar">
+    <button nz-button nzType="default" style="border-radius: 0;" (click)="closeMenu()">
+      <nz-icon nzType="close" />
+    </button>
+  </div>
+  <!-- <div class="sidebar-logo">
     <a [href]="this.companyConfig?.companyLink??'/'">
       <img [src]="this.companyConfig?.logo?? this.companyConfig?.logo?? '' " alt="logo" />
       <h1>{{this.companyConfig?.companyName??''}}</h1>
     </a>
-  </div>
+  </div> -->
 
   <!-- Pass the menuItems as input to the app-menu component -->
   <app-menu [isCollapsed]="isCollapsed" [menuItems]="menuItems"></app-menu>

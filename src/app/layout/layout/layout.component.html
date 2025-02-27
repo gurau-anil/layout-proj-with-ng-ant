@@ -1,11 +1,33 @@
 <nz-layout class="app-layout">
-    <app-sidenav [isCollapsed]="isCollapsed"></app-sidenav>
+    <app-sidenav [isCollapsed]="isCollapsed" (isAutoCollapsedChange)="handleAutoCollapseChanged($event)" (isMenuClosed)="closeMenu()"></app-sidenav>
     <nz-layout>
       <app-topnav [isCollapsed]="isCollapsed" (toggleCollapse)="toggleCollapse()"></app-topnav>
       <nz-content>
-        <div class="inner-content">
-        <!-- <div class="inner-content" [ngStyle]="isCollapsed ? { 'margin-left': 'unset' } : { 'margin-left': '256px', 'transition' : 'all 0.3s' }"> -->
+        <div id="inner-content" class="inner-content" [ngStyle]="isAutoCollapsed ? {'margin-left': '1rem'} : 
+        isCollapsed? { 'margin-left': '1rem' } : { 'margin-left': '17rem', 'transition' : 'all 0.3s' }">
           <router-outlet></router-outlet>
+
+          <nz-float-button-top 
+            [nzTarget]="'#inner-content'" 
+            nzType="primary" 
+            nzShape="circle">
+            <i nz-icon nzType="arrow-up" nzTheme="outline"></i>
+          </nz-float-button-top>
+
+          <nz-float-button-group
+            nzType="primary"
+            nzTrigger="hover"
+            style="right: 24px; bottom: 100px"
+            [nzIcon]="icon"
+          >
+            <i nz-icon nzType="arrow-up" nzTheme="outline"></i>
+            <nz-float-button></nz-float-button>
+            <nz-float-button></nz-float-button>
+          </nz-float-button-group>
+          <ng-template #icon>
+            <nz-icon nzType="arrow-up" nzTheme="outline"></nz-icon>
+          </ng-template>
+
         </div>
       </nz-content>
     </nz-layout>
