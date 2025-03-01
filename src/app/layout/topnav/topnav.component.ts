@@ -3,10 +3,11 @@ import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { CompanyConfig, CompanyConfigService } from '../../../services/company.config';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 
 @Component({
   selector: 'app-topnav',
-  imports: [NzLayoutModule, NzIconModule, NzFlexModule],
+  imports: [NzLayoutModule, NzIconModule, NzFlexModule, NzAvatarModule],
   templateUrl: './topnav.component.html',
   styleUrl: './topnav.component.less'
 })
