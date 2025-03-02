@@ -8,9 +8,9 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
   imports: [NzFloatButtonModule, NzIconModule],
   template: `
     <nz-float-button-group
+      id="float-btns-group"
       nzType="primary"
       [nzTrigger]="trigger"
-      style="right: 24px"
       [nzIcon]="icon"
     >
       <nz-float-button><nz-icon nzType="setting" nzTheme="outline"></nz-icon></nz-float-button>
@@ -20,7 +20,11 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
       <nz-icon nzType="menu" nzTheme="outline"></nz-icon>
     </ng-template>
   `,
-  styles: ``
+  styles: `
+    #float-btns-group{
+      right: 24px;
+    }
+  `
 })
 export class FloatButtonsComponent {
 @Input() trigger: 'click'|'hover' = "click";
